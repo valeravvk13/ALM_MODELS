@@ -36,8 +36,7 @@ class SARIMA(SARIMAX):
         #overloading __init__
         super(SARIMA, self).__init__(endog=self.endog, exog=self.exog, *args, **kwargs)
         
-    
-    
+   
     def _diff(self, x, diff_lag):
         if diff_lag:
             return pd.Series(x[:, 0]).diff(diff_lag)[diff_lag:]
@@ -99,7 +98,6 @@ class GridSearch(SARIMA):
                    scoring, n_jobs, cv, split_size)
       
         
-        
     def __defaults(self, 
                    estimator, 
                    param_grid, 
@@ -124,7 +122,6 @@ class GridSearch(SARIMA):
         """
         self.n_jobs = n_jobs if ((n_jobs >= 1) & (n_jobs <= int(cpu_count() / 2))) else int(cpu_count() / 2)
         return self.n_jobs
-        
         
         
     def _prepare_sarima_parameters(self):
@@ -329,7 +326,7 @@ class GridSearch(SARIMA):
         
         
     #return functions 
-    
+    #score, model, params, cv_results
     def cv_results_(self):
         try: 
             res = self.GridSearchResults
