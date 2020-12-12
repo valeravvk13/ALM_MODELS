@@ -172,8 +172,7 @@ class PROPHET(Prophet):
             
             
 
-
-
+            
 class GridSearchProphet(PROPHET):
     """
         model selection with GridSearch (PROPHET models)
